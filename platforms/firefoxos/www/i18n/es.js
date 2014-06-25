@@ -1,0 +1,1 @@
+_.setTranslation({"Calculate": "Calcular", "Subnet mask (or use select for bytes)": "mascara de subred (o escoge n\u00ba de bits)", "Net IP": "IP de la red", "Net range": "Rango de la red", "IP (decimal or binary": "IP (Decimal o binario", "Number of host for subnet": "Numero de hosts por subred"});

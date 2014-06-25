@@ -1,0 +1,29 @@
+input, select, #main, button{
+	border: 1px solid #c5c5c5;
+	outline: 0;
+	border-radius: 4px;
+	margin: .5em;
+	padding: .4em;
+	background-color: white;
+	color: black;
+}
+input:focus {border-color: blue}
+label {display: block; margin-left: .5em;}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: white url(../img/select-arrow.png) no-repeat 90% center;
+	width: 50px;
+	text-indent: 0.01px;
+	text-overflow: "";
+}
+body {
+	margin: 0px;
+}
+#main {
+	text-align: center;
+	margin: .5em auto;
+	max-width: 340px;
+	padding: .4em;
+}
+#calc {text-align: left;}
