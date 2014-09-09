@@ -6,4 +6,9 @@
 /home/sonlink/proyectos/ipcalc/platforms/android/res/values/strings.xml \
 /home/sonlink/proyectos/ipcalc/platforms/android/res/drawable-ldpi/icon.png \
 /home/sonlink/proyectos/ipcalc/platforms/android/res/drawable/icon.png \
+/home/sonlink/proyectos/ipcalc/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
+/home/sonlink/proyectos/ipcalc/platforms/android/ant-build/res/drawable-mdpi/icon.png \
+/home/sonlink/proyectos/ipcalc/platforms/android/ant-build/res/drawable-hdpi/icon.png \
+/home/sonlink/proyectos/ipcalc/platforms/android/ant-build/res/drawable-ldpi/icon.png \
+/home/sonlink/proyectos/ipcalc/platforms/android/ant-build/res/drawable/icon.png \
 /home/sonlink/proyectos/ipcalc/platforms/android/ant-build/AndroidManifest.xml \

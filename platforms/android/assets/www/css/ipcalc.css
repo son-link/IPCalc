@@ -9,7 +9,7 @@ input[type="text"], button, select {
 	padding: 0.3em;
 	font-size: 100%;
 }
-input[type="text"], #result, select, button {width: 90% !important;}
+input[type="text"], #result, select, button, span {width: 90% !important;}
 input:focus {border-color: blue}
 label {display: block; margin-left: .5em;}
 #main select {
@@ -67,3 +67,4 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+span {padding: 0.3em;}
