@@ -25,7 +25,6 @@
 /home/sonlink/proyectos/ipcalc/platforms/android/assets/www/css/ipcalc.css \
 /home/sonlink/proyectos/ipcalc/platforms/android/assets/www/i18n/en.js \
 /home/sonlink/proyectos/ipcalc/platforms/android/assets/www/i18n/es.js \
-/home/sonlink/proyectos/ipcalc/platforms/android/assets/www/js/jquery-1.11.1.min.js \
 /home/sonlink/proyectos/ipcalc/platforms/android/assets/www/js/translate.js \
 /home/sonlink/proyectos/ipcalc/platforms/android/assets/www/js/ipcalc.js \
 /home/sonlink/proyectos/ipcalc/platforms/android/ant-build/AndroidManifest.xml \

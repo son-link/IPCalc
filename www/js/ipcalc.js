@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		check_submask();
 	});
 	document.getElementById("snmask-bits").addEventListener("change", function(){
-		bites = Number($(this).val());
+		bites = Number(this.value);
 		bits = '';
 		for (i=0; i<32; i++){
 			if (i < bites){
