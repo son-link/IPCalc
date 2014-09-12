@@ -3,13 +3,13 @@
     "installs_allowed_from": [
         "*"
     ],
-    "version": "0.2.0",
+    "version": "0.4.1",
     "name": "IPCalc",
     "pkgName": "org.sonlink.ipcalc",
-    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "description": "Calculate IP Net range for nets",
     "developer": {
-        "name": "Apache Cordova Team",
-        "url": "http://cordova.io"
+        "name": "Alfonso Saavedra \"Son Link\"",
+        "url": "http://github.com/son-link"
     },
     "icons": {}
 }

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.sonlink.ipcalc" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.sonlink.ipcalc" version="0.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>IPCalc</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Calculate IP Net range for nets
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="sonlink.dourden@gmail.com" href="http://github.com/son-link">
+        Alfonso Saavedra "Son Link"
     </author>
     <content src="index.html" />
     <access origin="*" />
