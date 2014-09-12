@@ -3,7 +3,7 @@
     "installs_allowed_from": [
         "*"
     ],
-    "version": "0.0.1",
+    "version": "0.2.0",
     "name": "IPCalc",
     "pkgName": "org.sonlink.ipcalc",
     "description": "A sample Apache Cordova application that responds to the deviceready event.",

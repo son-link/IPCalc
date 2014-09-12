@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-10 12:46+0200\n"
+"POT-Creation-Date: 2014-06-18 14:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ipcalc.js:130
-msgid "IP (decimal or binary"
+#: www/js/ipcalc.js:138
+msgid "IP (decimal or binary)"
 msgstr ""
 
-#: ipcalc.js:131
+#: www/js/ipcalc.js:139
 msgid "Subnet mask (or use select for bytes)"
 msgstr ""
 
-#: ipcalc.js:132
+#: www/js/ipcalc.js:140
 msgid "Calculate"
 msgstr ""
 
-#: ipcalc.js:133
+#: www/js/ipcalc.js:141
 msgid "Net IP"
 msgstr ""
 
-#: ipcalc.js:134
-msgid "Net range"
+#: www/js/ipcalc.js:142
+msgid "Host range"
 msgstr ""
 
-#: ipcalc.js:135
+#: www/js/ipcalc.js:143
 msgid "Number of host for subnet"
 msgstr ""

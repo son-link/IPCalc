@@ -10,14 +10,19 @@ function dec2bin (dec) {
 function bin2dec(bin) {
 	return String(parseInt(bin, 2));
 }
+function create_node(tag, text){
+	node=document.createElement(tag);
+	textnode=document.createTextNode(text);
+	node.appendChild(textnode);
+	document.getElementById("myList").appendChild(node);
+}
 function check_ip(){
 	ipbin = ''
-	if ($('#ip').val().match(ipregex)){
-		$('#ip').css('border-color', '');
-		ips = $('#ip').val().split('.')
-		$.each(ips, function(indice, valor){
-			bin = dec2bin(valor);
-			if (bin.toString().length < 8){
+	if (document.getElementById('ip').value.match(ipregex)){
+		document.getElementById('ip').style.borderColor = '';
+		ips = document.getElementById('ip').value.split('.')
+		ips.forEach(function(valor) {
+			bin = dec2bin(valor);			if (bin.toString().length < 8){
 				ceros = 8 - bin.toString().length;
 				for (i = 0; i < ceros; i++){
 					bin = '0' + bin;
@@ -26,19 +31,20 @@ function check_ip(){
 			ipbin += '.'+bin;
 		});
 		ipbin = ipbin.substr(1);
-	}else if($('#ip').val().match(ipbinregex)){
-		$('#ip').css('border-color', '');
-		ipbin = $('#ip').val();
+	}else if(document.getElementById('ip').value.match(ipbinregex)){
+		document.getElementById('ip').style.borderColor = ''
+		ipbin = document.getElementById('ip').value;
 	}else{
-		$('#ip').css('border-color', 'red');
+		document.getElementById('ip').style.borderColor = 'red';
+		return false;
 	}
 }
 function check_submask(){
 	submaskbin = ''
-	if ($('#snmask-decimal').val().match(submaskregex)){
-		$('#snmask-decimal').css('border-color', '');
-		masks = $('#snmask-decimal').val().split('.')
-		$.each(masks, function(indice, valor){
+	if (document.getElementById('snmask-decimal').value.match(submaskregex)){
+		document.getElementById('snmask-decimal').style.borderColor = '';
+		masks = document.getElementById('snmask-decimal').value.split('.')
+		masks.forEach(function(valor){
 			bin = dec2bin(valor);
 			if (bin.toString().length < 8){
 				ceros = 8 - bin.toString().length;
@@ -58,23 +64,23 @@ function check_submask(){
 				break;
 			}
 		}
-		$('#snmask-bits').val(n);
+		document.getElementById('snmask-bits').value = n;
 	}else{
-		$('#snmask-decimal').css('border-color', 'red');
+		document.getElementById('snmask-decimal').style.borderColor = 'red';
 	}
 }
-$(document).ready(function(){
-	$("form").submit(function(e){
+document.addEventListener('DOMContentLoaded', function(){
+	document.getElementById('form').addEventListener('submit', function(e){
 		e.preventDefault();
 	});
-	$('#ip').keyup(function(){
+	document.getElementById('ip').addEventListener('keyup', function(){
 		check_ip();
 	});
-	$('#snmask-decimal').keyup(function(){
+	document.getElementById("snmask-decimal").addEventListener("keyup", function(){
 		check_submask();
 	});
-	$('#snmask-bits').change(function(){
-		bites = Number($(this).val());
+	document.getElementById("snmask-bits").addEventListener("change", function(){
+		bites = Number(this.value);
 		bits = '';
 		for (i=0; i<32; i++){
 			if (i < bites){
@@ -83,54 +89,59 @@ $(document).ready(function(){
 				bits += '0';
 			}
 		}
-		console.log(bits.substr(0,8));
 		snmask = bin2dec(bits.substr(0,8))+'.'+bin2dec(bits.substr(8,8))+'.'+bin2dec(bits.substr(16,8))+'.'+bin2dec(bits.substr(24,8));
-		$('#snmask-decimal').val(snmask);
+		document.getElementById('snmask-decimal').value = snmask;
 	});
-	$('#calcular').click(function(){
+	document.getElementById("calcular").addEventListener("click", function(){
 		check_ip();
 		check_submask();
-		ip = ipbin.replace(/[.]/g, '');
-		sn = submaskbin.replace(/[.]/g, '');
-		netip = '';
-		broadcast = '';
-		for (i=0; i<32; i++){
-			if (ip[i] == '1' && sn[i] == '1'){
-				netip += '1';
+		if (ipbin){
+			ip = ipbin.replace(/[.]/g, '');
+			sn = submaskbin.replace(/[.]/g, '');
+			netip = '';
+			broadcast = '';
+			for (i=0; i<32; i++){
+				if (ip[i] == '1' && sn[i] == '1'){
+					netip += '1';
+				}else{
+					netip += '0';
+				}
+			}
+			netipdec = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(netip.substr(24,8));
+			rangefrom = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(Number(netip.substr(24,8))+1);
+			document.getElementById('net').innerHTML = netipdec;
+			bites = Number(document.getElementById('snmask-bits').value);
+			bin2='';
+			for (i=0; i <32; i++){
+				if (i<=bites-1){
+					broadcast += netip[i];
+				}else{
+					broadcast += '1';
+				}
+			}
+			broadcastdec = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(broadcast.substr(24,8));
+			rangeto = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(Number(broadcast.substr(24,8))-1);
+			document.getElementById('range').innerHTML = rangefrom+' / '+rangeto;
+			document.getElementById('broadcast').innerHTML = broadcastdec;
+			document.getElementById('hosts').innerHTML = Math.pow(2,32-bites)-2;
+			if (document.getElementById('ip').value.match(ipregex)){
+				document.getElementById('ip-conv').innerHTML = ipbin;
 			}else{
-				netip += '0';
+				document.getElementById('ip-conv').innerHTML = bin2dec(ipbin.substr(0,8))+'.'+bin2dec(ipbin.substr(9,8))+'.'+bin2dec(ipbin.substr(18,8))+'.'+bin2dec(ipbin.substr(27,8));
 			}
 		}
-		console.log('Net IP: '+netip.substr(0,8)+'.'+netip.substr(8,8)+'.'+netip.substr(16,8)+'.'+netip.substr(24,8));
-		netipdec = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(netip.substr(24,8));
-		rangefrom = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(Number(netip.substr(24,8))+1);
-		$('#net').val(netipdec)
-		bites = Number($('#snmask-bits').val()-1);
-		bin2='';
-		for (i=0; i <32; i++){
-			if (i<=bites){
-				broadcast += netip[i];
-			}else{
-				broadcast += '1';
-			}
-		}
-		console.log(bin2.length);
-		console.log(netip+' => '+broadcast);
-		broadcastdec = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(broadcast.substr(24,8));
-		console.log(broadcastdec);
-		rangeto = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(Number(broadcast.substr(24,8))-1);
-		$('#rangefrom').val(rangefrom);
-		$('#rangeto').val(rangeto);
-		$('#hosts').val(Math.pow(2,32-bites)-2);
 	});
-	for (i=8; i<=32; i++){
-		$('#snmask-bits').append('<option>'+i+'</option>');
+	for (i=1; i<=32; i++){
+		node=document.createElement('option');
+		textnode=document.createTextNode(i);
+		node.appendChild(textnode);
+		document.getElementById('snmask-bits').appendChild(node);
+		if ( i == 8) document.getElementById('snmask-bits').value = i;
 	}
-	//_.setTranslation();
-	$("label[for='ip']").text(_("IP (decimal or binary"));
-	$("label[for='snmask-decimal']").text(_("Subnet mask (or use select for bytes)"));
-	$("#calcular").text(_("Calculate"));
-	$("label[for='net']").text(_("Net IP"));
-	$("label[for='rangefrom']").text(_("Net range"));
-	$("label[for='hosts']").text(_("Number of host for subnet"));
+	document.querySelectorAll("label[for='ip']").innerHTML = _("IP (decimal or binary)");
+	document.querySelector("label[for='snmask-decimal']").innerHTML = _("Subnet mask (or use select for bytes)");
+	document.getElementById("calcular").innerHTML = _("Calculate");
+	document.getElementById('net-txt').innerHTML = _("Net IP");
+	document.getElementById('host-range').innerHTML = _("Host range");
+	document.getElementById('hosts-txt').innerHTML = _("Number of host for subnet");
 })
