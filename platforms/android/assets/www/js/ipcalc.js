@@ -69,6 +69,7 @@ function check_submask(){
 		document.getElementById('snmask-decimal').style.borderColor = 'red';
 	}
 }
+
 document.addEventListener('DOMContentLoaded', function(){
 	document.getElementById('form').addEventListener('submit', function(e){
 		e.preventDefault();
@@ -138,10 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.getElementById('snmask-bits').appendChild(node);
 		if ( i == 8) document.getElementById('snmask-bits').value = i;
 	}
-	document.querySelectorAll("label[for='ip']").innerHTML = _("IP (decimal or binary)");
-	document.querySelector("label[for='snmask-decimal']").innerHTML = _("Subnet mask (or use select for bytes)");
-	document.getElementById("calcular").innerHTML = _("Calculate");
-	document.getElementById('net-txt').innerHTML = _("Net IP");
-	document.getElementById('host-range').innerHTML = _("Host range");
-	document.getElementById('hosts-txt').innerHTML = _("Number of host for subnet");
+	lang = navigator.language;
+	console.log('El idioma del movil es: '+lang);
+
 })

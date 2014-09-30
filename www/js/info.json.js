@@ -1,0 +1,1 @@
+{"country":"ES","country3":"ESP","country_name":"España","language":"es","language3":"spa","language_name":"español","name":"español (España)","tag_icu":"es_ES","tag_ietf":"es-ES","tag_original":"es-ES"}

@@ -1,15 +1,26 @@
 {
-    "launch_path": "/index.html",
-    "installs_allowed_from": [
-        "*"
-    ],
-    "version": "0.4.1",
-    "name": "IPCalc",
-    "pkgName": "org.sonlink.ipcalc",
-    "description": "Calculate IP Net range for nets",
-    "developer": {
-        "name": "Alfonso Saavedra \"Son Link\"",
-        "url": "http://github.com/son-link"
-    },
-    "icons": {}
+	"launch_path": "/index.html",
+	"installs_allowed_from": [
+		"*"
+	],
+	"version": "0.4.2",
+	"name": "IP Calc",
+	"pkgName": "org.sonlink.ipcalc",
+	"description": "Calculate IP Net range for nets",
+	"default_locale": "en",
+	"orientation": [ "landscape-primary" ],
+	"developer": {
+		"name": "Alfonso Saavedra \"Son Link\"",
+		"url": "http://son-link-github.io/IPCalc"
+	},
+	"icons": {
+		"128": "/img/icon-128.png",
+		"512": "/img/icon-512.png"
+	},
+	"locales": {
+		"es": {
+			"name": "IP Calc",
+			"description": "Calculadora para rangos IP de redes locales."
+		}
+	}
 }
