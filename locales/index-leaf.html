@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ip Calc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="generator" content="Geany 1.24.1" />
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="resource" type="application/l10n" href="locales/locales.ini" />
+</head>
+
+<body>
+	<div id="wrapper">
+		<div class="container">
+			<div class="crow up">
+				<h1>Ip Calc</h1>
+				<div class="ws-4">
+					<div class="input">
+						<label data-l10n-id="ip" for="ip"></label>
+						<input type="text" name="ip" id="ip" maxlength="35" required>
+						<div class="drop down-left max error-message">
+							<span>Incorrect IP</span>
+						</div>
+					</div>
+				</div>
+				<div class="ws-4">
+					<div class="input">
+						<label data-l10n-id="net-mask" for="snmask-decimal"></label>
+						<input type="text" name="snmask-decimal" id="snmask-decimal" maxlength="15" value="255.0.0.0" required />
+						<div class="drop down-left max error-message">
+							<span>Incorrect Netmask</span>
+						</div>
+					</div>
+				</div>
+				<div class="ws-2">
+					<div class="input">
+						<label data-l10n-id="net-mask-bits" for="snmask-bits"></label>
+						<select id="snmask-bits"></select>
+					</div>
+				</div>
+				<div class="ws-2">
+					<div class="input">
+						<br />
+						<button data-l10n-id="calc" id="calcular" class="button bg-blue text-white"></button>
+					</div>
+				</div>
+				<h3>Resultados</h3>
+				<div class="ws-2">
+					<div class="input">
+						<label data-l10n-id="net-ip" for="net"></label>
+						<input type="text" id="net" disabled />
+					</div>
+				</div>
+				<div class="ws-2">
+					<div class="input">
+						<label for="net">Broadcast</label>
+						<input type="text" id="broadcast" disabled />
+					</div>
+				</div>
+				<div class="ws-3">
+					<div class="input">
+						<label data-l10n-id="hosts-range" for="range"></label>
+						<input type="text" id="range" disabled />
+					</div>
+				</div>
+				<div class="ws-3">
+					<div class="input">
+						<label data-l10n-id="number-hosts" for="hosts"></label>
+						<input type="text" id="hosts" disabled />
+					</div>
+				</div>
+				<div class="ws-4">
+					<div class="input">
+						<label for="ip-conv">IP</label>
+						<input type="text" id="ip-conv" disabled />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script defer src="js/l10n.js" charset="utf-8"></script>
+	<script src="js/ipcalc.js"type="text/javascript"></script>
+</html>

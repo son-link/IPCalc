@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ip Calc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="generator" content="Geany 1.24.1" />
+	<link rel="stylesheet" href="css/ipcalc.css">
+	<link rel="resource" type="application/l10n" href="locales/locales.ini" />
+</head>
+
+<body>
+	<div id="container">
+		<div id="main">
+			<div id="header">
+				<h2>Ip Calc</h2>
+			</div>
+			<div id="calc">
+				<form id="form">
+					<table>
+						<tr>
+							<td>
+								<label data-l10n-id="ip" for="ip" style="display:block"></label>
+								<input type="text" name="ip" id="ip" maxlength="35"required>
+							</td>
+							<td>
+								<button data-l10n-id="calc" id="calcular" style="vertical-align:text-bottom;"></button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label data-l10n-id="net-mask" for="snmask-decimal"></label>
+								<input type="text" name="snmask-decimal" id="snmask-decimal" maxlength="15" value="255.0.0.0" required />
+							</td>
+							<td>
+								<select id="snmask-bits"></select><br/>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<div id="result">
+					<table>
+						<tr>
+							<td id="net-txt"><span data-l10n-id="net-ip"></span></td>
+							<td id="net"></td>
+						</tr>
+						<tr>
+							<td><span>Broadcast</span></td>
+							<td id="broadcast"></td>
+						</tr>
+							<td id="hosts-range"><span data-l10n-id="hosts-range"></span></td>
+							<td id="range"></td>
+						</tr>
+						<tr>
+							<td id="hosts-txt"><span data-l10n-id="number-hosts"</td>
+							<td id="hosts"></td>
+						</tr>
+					</table>
+					<span>IP:</span><br /><span id="ip-conv">&nbsp;</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script defer src="js/l10n.js" charset="utf-8"></script>
+	<script src="js/ipcalc.js"type="text/javascript"></script>
+</html>
