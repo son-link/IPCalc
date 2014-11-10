@@ -19,10 +19,11 @@ function create_node(tag, text){
 function check_ip(){
 	ipbin = ''
 	if (document.getElementById('ip').value.match(ipregex)){
-		document.getElementById('ip').style.borderColor = '';
+		document.getElementById('ip').parentNode.setAttribute("class", "input");
 		ips = document.getElementById('ip').value.split('.')
 		ips.forEach(function(valor) {
-			bin = dec2bin(valor);			if (bin.toString().length < 8){
+			bin = dec2bin(valor);
+			if (bin.toString().length < 8){
 				ceros = 8 - bin.toString().length;
 				for (i = 0; i < ceros; i++){
 					bin = '0' + bin;
@@ -32,17 +33,17 @@ function check_ip(){
 		});
 		ipbin = ipbin.substr(1);
 	}else if(document.getElementById('ip').value.match(ipbinregex)){
-		document.getElementById('ip').style.borderColor = ''
+		document.getElementById('ip').parentNode.setAttribute("class", "input");
 		ipbin = document.getElementById('ip').value;
 	}else{
-		document.getElementById('ip').style.borderColor = 'red';
+		document.getElementById('ip').parentNode.setAttribute("class", "input error");
 		return false;
 	}
 }
 function check_submask(){
 	submaskbin = ''
 	if (document.getElementById('snmask-decimal').value.match(submaskregex)){
-		document.getElementById('snmask-decimal').style.borderColor = '';
+		document.getElementById('snmask-decimal').parentNode.setAttribute("class", "input");
 		masks = document.getElementById('snmask-decimal').value.split('.')
 		masks.forEach(function(valor){
 			bin = dec2bin(valor);
@@ -66,14 +67,11 @@ function check_submask(){
 		}
 		document.getElementById('snmask-bits').value = n;
 	}else{
-		document.getElementById('snmask-decimal').style.borderColor = 'red';
+		document.getElementById('snmask-decimal').parentNode.setAttribute("class", "input error");
 	}
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-	document.getElementById('form').addEventListener('submit', function(e){
-		e.preventDefault();
-	});
 	document.getElementById('ip').addEventListener('keyup', function(){
 		check_ip();
 	});
@@ -110,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 			netipdec = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(netip.substr(24,8));
 			rangefrom = bin2dec(netip.substr(0,8))+'.'+bin2dec(netip.substr(8,8))+'.'+bin2dec(netip.substr(16,8))+'.'+bin2dec(Number(netip.substr(24,8))+1);
-			document.getElementById('net').innerHTML = netipdec;
+			document.getElementById('net').value = netipdec;
 			bites = Number(document.getElementById('snmask-bits').value);
 			bin2='';
 			for (i=0; i <32; i++){
@@ -122,13 +120,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 			broadcastdec = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(broadcast.substr(24,8));
 			rangeto = bin2dec(broadcast.substr(0,8))+'.'+bin2dec(broadcast.substr(8,8))+'.'+bin2dec(broadcast.substr(16,8))+'.'+bin2dec(Number(broadcast.substr(24,8))-1);
-			document.getElementById('range').innerHTML = rangefrom+' / '+rangeto;
-			document.getElementById('broadcast').innerHTML = broadcastdec;
-			document.getElementById('hosts').innerHTML = Math.pow(2,32-bites)-2;
+			document.getElementById('range').value = rangefrom+' / '+rangeto;
+			document.getElementById('broadcast').value = broadcastdec;
+			document.getElementById('hosts').value = Math.pow(2,32-bites)-2;
 			if (document.getElementById('ip').value.match(ipregex)){
-				document.getElementById('ip-conv').innerHTML = ipbin;
+				document.getElementById('ip-conv').value = ipbin;
 			}else{
-				document.getElementById('ip-conv').innerHTML = bin2dec(ipbin.substr(0,8))+'.'+bin2dec(ipbin.substr(9,8))+'.'+bin2dec(ipbin.substr(18,8))+'.'+bin2dec(ipbin.substr(27,8));
+				document.getElementById('ip-conv').value = bin2dec(ipbin.substr(0,8))+'.'+bin2dec(ipbin.substr(9,8))+'.'+bin2dec(ipbin.substr(18,8))+'.'+bin2dec(ipbin.substr(27,8));
 			}
 		}
 	});
@@ -139,4 +137,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.getElementById('snmask-bits').appendChild(node);
 		if ( i == 8) document.getElementById('snmask-bits').value = i;
 	}
-})
+	navigator.mozL10n.ready ( function () {
+		// grab l10n object
+		var _ = navigator.mozL10n.get;
+		console.log(_('ip'));
+		// Notifications
+	});
+});

@@ -12,7 +12,7 @@
     <author email="sonlink.dourden@gmail.com" href="http://github.com/son-link">
         Alfonso Saavedra "Son Link"
     </author>
-    <content src="index.html" />
+    <content src="index-leaf.html" />
     <access origin="*" />
     <preference name="Orientation" value="landscape" />
 </widget>
